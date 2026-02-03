@@ -1,0 +1,61 @@
+name: Deploy to GitHub Pages
+
+on:
+  # Runs on every push to main. Change 'main' to your branch if different.
+  push:
+    branches: ['main']
+
+  # Lets you trigger the workflow manually from the Actions tab.
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Only one deployment runs at a time; extras queue instead of cancelling.
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  # ── 1. Build ──────────────────────────────────
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build
+        env:
+          # GitHub Pages serves from /your-repo-name/ not the root.
+          # Vite picks this up via process.env.BASE_PATH in vite.config.ts.
+          BASE_PATH: ${{ github.event.repository.name }}
+        run: npm run build
+
+      - name: Upload build artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          # Vite outputs to 'dist' by default. Change this if yours is different.
+          path: dist
+
+  # ── 2. Deploy ─────────────────────────────────
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
