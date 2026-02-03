@@ -1,7 +1,6 @@
 <script>
 import Home from './lib/home.svelte';
 import About from './lib/about.svelte';
-import Nav from './lib/navbar.svelte';
 import Services from './lib/services.svelte';
 import Ministries from './lib/ministries.svelte';
 import Events from './lib/events.svelte';
