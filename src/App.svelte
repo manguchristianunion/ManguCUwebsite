@@ -1,3 +1,4 @@
+<!-- main file -->
 <script>
 import Home from './lib/home.svelte';
 import About from './lib/about.svelte';
