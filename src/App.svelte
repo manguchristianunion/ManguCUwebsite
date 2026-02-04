@@ -17,6 +17,7 @@ import Contacts_and_Directions from './lib/contacts_and_directions.svelte';
 
 
 <style>
+  /* remove global padding and margins for full fit using 100 vw and 100 vh with no overflow */
     :global(*, *::before, *::after) {
     margin: 0;
     padding: 0;
