@@ -7,5 +7,5 @@ export default defineConfig({
 
   // When deployed to GitHub Pages the site lives at /repo-name/, not /.
   // The workflow sets BASE_PATH=repo-name; locally it's undefined so we fall back to '/'.
-  base: process.env.BASE_PATH ? `/${process.env.BASE_PATH}/` : "/",
+  base: "/ManguCUwebsite/",
 });
