@@ -153,7 +153,7 @@
     /* ── Responsive ── */
     @media (max-width: 768px) {
         #about {
-            flex-direction: column-reverse;
+            flex-direction: column;
         }
 
         #image {
