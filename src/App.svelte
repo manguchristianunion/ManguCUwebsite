@@ -4,6 +4,7 @@ import Home from './lib/home.svelte';
 import About from './lib/about.svelte';
 import Services from './lib/services.svelte';
 import Ministries from './lib/ministries.svelte';
+import Leadership from './lib/leadership.svelte';
 import Events from './lib/events.svelte';
 import Contacts_and_Directions from './lib/contacts_and_directions.svelte';
 </script>
@@ -13,6 +14,7 @@ import Contacts_and_Directions from './lib/contacts_and_directions.svelte';
 <About />
 <Services />
 <Ministries />
+<Leadership />
 <Events />
 <Contacts_and_Directions />
 

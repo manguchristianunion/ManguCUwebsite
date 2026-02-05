@@ -46,11 +46,17 @@
     position: absolute;
     inset: 0;
     background: linear-gradient(
+      to bottom, 
+      rgb(255, 230, 0) 0%,
+      rgba(250, 226, 16, 0.7) 50%,
+      rgba(255, 237, 36, 0.3) 100%
+      );
+    /* background: linear-gradient(
       to bottom,
       rgba(0, 0, 0, 0.45) 0%,
       rgba(0, 0, 0, 0.6) 50%,
       rgba(0, 0, 0, 0.7) 100%
-    );
+    ); */
     z-index: 0;
   }
 
@@ -74,7 +80,7 @@
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
                  'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     font-weight: 700;
-    color: #d4a017;
+    color: #0a0a0a;
     line-height: 1;
     letter-spacing: 0.08em;
     text-shadow: 0 2px 16px rgba(0, 0, 0, 0.4);
